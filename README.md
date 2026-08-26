@@ -1,17 +1,20 @@
-# Sky High Photography Demo
+# Sky High Photography
 
-A premium, mobile-first photography portfolio concept created from the supplied 2026 price guide.
+A responsive editorial portfolio and pricing website for Sky High Photography, Sri Lanka.
 
-## Preview locally
+## Features
 
-Open `index.html` directly, or run:
+- Warm boutique-inspired visual direction
+- Clean photography assets extracted from the supplied 2026 guide
+- Mobile-first navigation and horizontal touch galleries
+- Clear pricing by session type
+- WhatsApp enquiry links
+- Accessible semantic HTML and reduced-motion support
+
+## Local preview
+
+Open `index.html` directly or run a local static server:
 
 ```bash
-python3 -m http.server 4173
+python3 -m http.server 8000
 ```
-
-Then visit `http://localhost:4173/sky-high-photography-demo/`.
-
-## Deployment
-
-This is a static website and can be deployed directly to GitHub Pages. Create a separate repository for the demo, copy the contents of this folder into its root, and enable GitHub Pages from the `main` branch.
