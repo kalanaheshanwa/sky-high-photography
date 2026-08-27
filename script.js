@@ -41,6 +41,49 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
+document.querySelectorAll('[data-carousel-nav]').forEach((navigation) => {
+  const carousel = document.getElementById(navigation.dataset.carouselTarget);
+  if (!carousel) return;
+
+  const items = [...carousel.children];
+  const previous = navigation.querySelector('[data-carousel-prev]');
+  const next = navigation.querySelector('[data-carousel-next]');
+  const current = navigation.querySelector('[data-carousel-current]');
+  const total = navigation.querySelector('[data-carousel-total]');
+
+  total.textContent = String(items.length).padStart(2, '0');
+
+  const getCurrentIndex = () => {
+    const carouselLeft = carousel.getBoundingClientRect().left;
+    return items.reduce((closest, item, index) => {
+      const distance = Math.abs(item.getBoundingClientRect().left - carouselLeft);
+      return distance < closest.distance ? { index, distance } : closest;
+    }, { index: 0, distance: Infinity }).index;
+  };
+
+  const updateCarouselNav = () => {
+    const index = getCurrentIndex();
+    current.textContent = String(index + 1).padStart(2, '0');
+    previous.disabled = index === 0;
+    next.disabled = index === items.length - 1;
+  };
+
+  const goToItem = (offset) => {
+    const index = Math.max(0, Math.min(items.length - 1, getCurrentIndex() + offset));
+    const item = items[index];
+    carousel.scrollTo({
+      left: item.offsetLeft - ((carousel.clientWidth - item.clientWidth) / 2),
+      behavior: 'smooth'
+    });
+  };
+
+  previous.addEventListener('click', () => goToItem(-1));
+  next.addEventListener('click', () => goToItem(1));
+  carousel.addEventListener('scroll', updateCarouselNav, { passive: true });
+  window.addEventListener('resize', updateCarouselNav, { passive: true });
+  updateCarouselNav();
+});
+
 const pricingFinder = document.querySelector('[data-pricing-finder]');
 
 if (pricingFinder) {

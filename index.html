@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -80,7 +80,7 @@
         <p>Warm light, true connection and all the details you never want to forget. A glimpse into the stories we are trusted to preserve.</p>
       </div>
 
-      <div class="story-grid">
+      <div class="story-grid" id="story-gallery">
         <figure class="story story-tall reveal">
           <img src="assets/photos/photo-02.webp" alt="Elegant outdoor maternity portrait" loading="lazy">
           <figcaption><span>Maternity</span><small>New beginnings</small></figcaption>
@@ -107,7 +107,16 @@
         </figure>
       </div>
 
-      <div class="filmstrip" aria-label="More photographs">
+      <div class="carousel-nav" data-carousel-nav data-carousel-target="story-gallery">
+        <span><strong data-carousel-current>01</strong> / <span data-carousel-total>06</span></span>
+        <p>Swipe through the stories</p>
+        <div>
+          <button type="button" data-carousel-prev aria-label="Previous story">&#8592;</button>
+          <button type="button" data-carousel-next aria-label="Next story">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="filmstrip" id="more-gallery" aria-label="More photographs">
         <img src="assets/photos/photo-01.webp" alt="Child portrait" loading="lazy">
         <img src="assets/photos/photo-19.webp" alt="Maternity portrait" loading="lazy">
         <img src="assets/photos/photo-24.webp" alt="Baby milestone portrait" loading="lazy">
@@ -116,6 +125,14 @@
         <img src="assets/photos/photo-33.webp" alt="Third birthday portrait" loading="lazy">
         <img src="assets/photos/photo-30.webp" alt="Couple portrait" loading="lazy">
         <img src="assets/photos/photo-16.webp" alt="Child photographed among sunflowers" loading="lazy">
+      </div>
+      <div class="carousel-nav carousel-nav-small" data-carousel-nav data-carousel-target="more-gallery">
+        <span><strong data-carousel-current>01</strong> / <span data-carousel-total>08</span></span>
+        <p>More moments</p>
+        <div>
+          <button type="button" data-carousel-prev aria-label="Previous photograph">&#8592;</button>
+          <button type="button" data-carousel-next aria-label="Next photograph">&#8594;</button>
+        </div>
       </div>
     </section>
 
@@ -194,6 +211,6 @@
   </footer>
 
   <a class="whatsapp-float" href="https://wa.me/94766538612?text=Hi%20Sky%20High%20Photography%2C%20I%27d%20like%20to%20check%20your%20availability." target="_blank" rel="noopener" aria-label="Chat with Sky High Photography on WhatsApp">WhatsApp <span>↗</span></a>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
